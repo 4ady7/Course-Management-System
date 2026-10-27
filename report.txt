@@ -1,0 +1,184 @@
+A very short report in markdown format that covers the following:
+    A. A List of each ticket and assessment criteria. For each acceptance criteria:
+        a. The path to the file containing that feature
+        b. The line number that feature is on
+    B. The URL to the admin login page e.g. `https://as1.v.je/adminlogin.php`
+    C. A valid username/password to log in to the website as an the superadmin account
+
+
+https://v.je/index.php?destination=admin&action=login
+username: master3
+password: master3
+
+
+ticket 1 A superadmin can log in:
+login function url (relative path): websites/default/classes/AdminController.php
+public function login() line number: is from line 12 until line 46
+
+then also adding here the login path and line number for the login form
+login form url (relative path): websites/default/pageTemplates/login.php
+line number: is from line 3 until line 11
+
+
+tickett 1 A superadmin can add new accounts and ticket 1 new user can log in to the website:
+add function url (relative path): websites/default/classes/AdminController.php
+public function add() line number: is from line 106 until line 145
+then also adding here the path and line number for the add account form
+add account form url (relative path): websites/default/pageTemplates/addAccount.php
+line number: is from line 4 until line 21
+
+
+ticket 1 A superadmin can delete accounts:
+delete function url (relative path): websites/default/classes/AdminController.php
+public function delete() line number: is from line 179 until line 201
+
+
+ticket 1 The superadmin account cannot be deleted:
+the if statement in the delete function in the url (relative path): websites/default/classes/AdminController.php
+line number: is from line 192 until line 195
+In that code: I am saying if $staffMember is not empty, and if the role of the user is not superadmin, so if the if statment is not satisfied, and the role is an superadmin then we do not procced to delete the account
+
+
+ticket 1 Accounts that are not the superadmin should not be able to add/remove accounts
+the if statement in the delete function in the url (relative path): websites/default/classes/AdminController.php
+line number: is from line 181 until line 184
+In that code: I am saying if the login variable is not set to True or if the user is not a superadmin, then the user to the dashboard page. So if the user is not a superadmin, the user is sent to the dashboard page.
+
+
+ticket 1 new user can add subject areas (NMP-0002) and ticket 2 Users who are not logged in should not be able to add/edit subject areas.
+url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 37 until line 41
+
+
+ticket 2 Once a subject area is added it appears in the menu as a clickable link
+url (relative path): websites/default/pageTemplates/subjectArea.php
+line number: is from line 20 until line 22
+
+
+ticket 2 Logged in admin users can add new subject areas
+url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 45 until line 46
+
+
+ticket 2 Logged in admin users can rename existing subject areas
+url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 52 until line 60
+form url (relative path): websites/default/pageTemplates/addEditSubjectArea.php
+
+
+ticket 2 Users who are not logged in should not be able to delete subject areas.
+delete function in url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 81 until line 86
+
+
+ticket 2 Logged in admin users can delete existing subject areas entirely.
+url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 87 until line 90
+
+
+ticket 2 Clicking one of the subject areas should go to a page (within the standard layout provided) that has a heading of the chosen subject area. E.g. clicking “History” shows a page with a heading that says “History”
+url (relative path): websites/default/classes/subjectAreaController.php 
+line number: is from line 112 until line 116 ( inside public function show())
+url (relative path): websites/default/pageTemplates/subjectArea.php 
+line number: is from line 20 until line 22
+url (relative path): websites/default/pageTemplates/viewSubjectArea.php 
+line number: is from line 1 until line 4
+
+
+
+ticket 3 Be assigned to a subject area. For example “Software Engineering” can be added under the “Computing” subject area.
+url (relative path): websites/default/pageTemplates/course.php
+line number: is from line 49 until line 64
+
+
+ticket 3 Have a length in years e.g. 2 years
+url (relative path): websites/default/pageTemplates/course.php
+line number: 26
+
+
+ticket 3 Have a type for example “MSc”, “BSc”, “MA”, “BA”
+url (relative path): websites/default/pageTemplates/course.php
+line number: is from line 19 until line 23
+
+
+ticket 3 Have a title e.g. “Software Engineering”
+url (relative path): websites/default/pageTemplates/course.php
+line number: 16
+
+ticket 3 Have a description of the course
+url (relative path): websites/default/pageTemplates/course.php
+line number: 41
+
+
+ticket 3 Have a list of modules that are taught on the course. It should show the module code, module title and a short description of the module.
+url (relative path): websites/default/classes/CourseController.php
+line number: is from line 109 until line 111
+
+
+
+ticket 4 Anyone viewing the website can submit an enquiry
+url (relative path): websites/default/classes/EnquiryController.php
+line number: is from line 13 until line 34, in the funtion list, I am only checking if the submit button was clicked, and no restriction is added, so the user does not have to be logged in to make an enquiry. So Anyone viewing the website can submit an enquiry
+
+
+ticket 4 Submitted enquiries are visible to admins as long as they are logged in
+url (relative path): websites/default/classes/EnquiryController.php
+line number: line 56, in the manage function, I am checking first if the user is logged in, and if the user is not logged then the user can not access the submitted enquries list and is directed to the login page
+
+
+ticket 4 Enquires can be marked as “Responded to” and it logs who responded to the enquiry based on
+who’s logged in and ticket 4 Have a way to show pending enquiries (those which have not been responded to) and a way to show responded to enquiries
+url (relative path): websites/default/pageTemplates/EnquriesList.php
+line number: is from line 28 until line 40
+logic url (relative path): websites/default/classes/EnquiryController.php
+line number: is from line 88 until line 100
+
+
+
+ticket 5 Users can search by type, or by subject area, or by duration
+url (relative path): websites/default/pageTemplates/searchCourses.php
+line number: is from line 9 until line 38
+logic url (relative path): websites/default/classes/CourseController.php
+line number: is from line 79 until line 92
+
+
+ticket 5 Users can search by entering one, two or all three criteria
+url (relative path): websites/default/classes/DatabaseTable.php
+line number: line 126
+
+
+
+ticket 6 Add an option to mark a course as having a part time option when adding and editing a course
+url (relative path): websites/default/pageTemplates/course.php
+line number: is from line 29 until line 37
+
+
+ticket 6 Display whether a course can be completed part time on the course information on the list when clicking the subject area
+url (relative path): websites/default/pageTemplates/viewSubjectArea.php
+line number: is from line 18 until line 30
+
+
+ticket 6 Display whether a course can be completed part time on the course information on the list in the search results from NMP-0005
+form input url (relative path): websites/default/pageTemplates/searchCourses.php
+line number: is from line 40 until line 45
+
+
+ticket 6 Update the search functionality from NMP-0005 with an option to only show courses which can be completed part time
+display url (relative path): websites/default/classes/CourseController.php
+line number: is from line 95 until line 97
+
+
+ticket 7 Display 10 courses on the subject area page with a list of page numbers which can be clicked on
+and navigated to
+url (relative path): websites/default/classes/subjectAreaController.php
+line number: is from line 96 until line 127
+url (relative path): websites/default/classes/DatabaseTable.php
+line number: is from line 147 until line 154
+url (relative path): websites/default/pageTemplates/viewSubjectArea.php
+line number: is from line 52 until line 64
+Note: Subject area, History, has more than 10 courses
+Note: Subject area, Computing, has more than 10 courses
+
+Harvard Referencing:
+Youtu.be. (2026). Available at: https://youtu.be/3-5DpAiCHy8 [Accessed 14 Feb. 2026].
+‌I used this reference to help me get a start on understanding how to implement the logic for the pagination, and how to implement displaying the page numbers
